@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- SEO Essentials -->
+  <meta name="description" content="Portfolio of Khaled Dabbah – Third-year Computer Science student specializing in backend development, QA, OOP, and system programming.">
+  <meta name="keywords" content="Khaled Dabbah, software engineer, QA student, backend, Node.js, Java, C, Bar Ilan University">
+  <meta name="author" content="Khaled Dabbah">
+
+  <!-- Mobile Optimization -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph (Social Media Preview) -->
+  <meta property="og:title" content="Khaled Dabbah – Portfolio">
+  <meta property="og:description" content="Third-year CS student with projects in Node.js, Java, C, and system programming. Seeking QA/Software student roles.">
+  <meta property="Canترy" content="website">
+  <meta property="og:image" content="image/profile.jpg"> 
+  <meta property="og:url" content="https://khaleddabb.github.io/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Khaled Dabbah – Portfolio">
+  <meta name="twitter:description" content="CS Student | QA & Software | Node.js, Java, C Projects">
+  <meta name="twitter:image" content="image/profile.jpg">
+
+  <!-- Page Title -->
+  <title>Khaled Dabbah - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome for Skill Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      color: #f2f2f3;
+      background: linear-gradient(115deg, #181828 0%, #3a2e54 100%);
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Animated background effect */
+    body::before {
+      content: '';
+      pointer-events: none;
+      position: fixed;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 15% 35%, #00c6fb44 0%, transparent 45%), 
+                  radial-gradient(circle at 80% 65%, #a890fe33 0%, transparent 50%);
+      animation: float-bg 8s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+    @keyframes float-bg {
+      0%   { background-position: 15% 35%, 80% 65%; }
+      100% { background-position: 17% 32%, 83% 68%; }
+    }
+    .container {
+      max-width: 1050px;
+      margin: 54px auto 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .top-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 38px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #23263c 60%, #23263c 100%);
+      color: #7fd3fa;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-radius: 999px;
+      font-size: 1.08rem;
+      border: none;
+      box-shadow: 0 2px 12px #04091360;
+      border: 1.5px solid #23263c;
+      transition: background .22s, color .22s, border .22s, transform .12s;
+      cursor: pointer;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:after {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, #2dd4fd33 30%, #eab30822 100%);
+      opacity: 0;
+      transition: opacity .2s;
+      border-radius: 999px;
+      z-index: -1;
+    }
+    .btn:hover {
+      background: #181828;
+      color: #ffe27b;
+      border: 1.5px solid #ffe27b;
+      transform: translateY(-2px) scale(1.04);
+    }
+    .btn:hover:after {
+      opacity: 1;
+    }
+    .main-content {
+      display: flex;
+      gap: 42px;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    /* Profile / About Card */
+    .about-section {
+      flex: 1 1 340px;
+      max-width: 520px;
+      background: rgba(22, 22, 38, 0.77);
+      border-radius: 28px;
+      padding: 38px 34px 32px 34px;
+      box-shadow: 0 10px 42px #05010f50, 0 0 0 1.5px #24315f;
+      margin-bottom: 26px;
+      position: relative;
+      backdrop-filter: blur(14px);
+      border: 1.5px solid #383f63;
+      text-align: center;
+      z-index: 2;
+    }
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 22px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 0 15px #00e0e055,
+        0 0 35px #2dd4fd33;
+    }
+
+
+    .about-section h1 {
+      font-size: 2.18rem;
+      font-weight: 800;
+      margin: 0 0 12px 0;
+      background: linear-gradient(90deg, #00e0e0 25%, #86b7fa 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      color: #c9fae4;
+      font-size: 1.08rem;
+      font-weight: 500;
+      margin-bottom: 22px;
+      letter-spacing: .5px;
+    }
+    .about-section h2 {
+      font-size: 1.33rem;
+      margin: 0 0 10px 0;
+      color: #7fd3fa;
+      font-weight: 700;
+      background: none;
+      letter-spacing: .6px;
+      position: relative;
+      display: inline-block;
+    }
+    .about-section h2:after {
+      content: "";
+      display: block;
+      width: 44px;
+      height: 3px;
+      background: linear-gradient(90deg, #2dd4fd 0%, #eab308 100%);
+      border-radius: 2px;
+      margin: 7px auto 0 auto;
+    }
+    .about {
+      font-size: 1.09rem;
+      line-height: 1.7;
+      color: #e5e7ef;
+      margin-bottom: 4px;
+    }
+    /* Skills Window */
+    .skills-window {
+      width: 340px;
+      background: rgba(34, 36, 58, 0.94);
+      border-radius: 20px;
+      box-shadow: 0 6px 28px #14023e40, 0 0 0 1.5px #30314f;
+      border: 1.5px solid #2f3952;
+      overflow: hidden;
+      margin-bottom: 26px;
+      min-width: 230px;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(12px);
+      animation: floatcard 3.2s ease-in-out infinite alternate;
+    }
+    @keyframes floatcard {
+      0%   { transform: translateY(0);}
+      100% { transform: translateY(-10px);}
+    }
+    .window-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(90deg, #23263c 60%, #20213b 100%);
+      height: 28px;
+      padding: 0 12px;
+      border-bottom: 1px solid #23263c;
+    }
+    .window-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .window-dot.red { background: #fa6060; }
+    .window-dot.yellow { background: #facc15; }
+    .window-dot.green { background: #67f288; }
+    .skills-content {
+      padding: 18px 16px 14px 16px;
+    }
+    .skills-title {
+      color: #80cdfa;
+      font-size: 1.13rem;
+      margin-bottom: 15px;
+      margin-top: 0;
+      font-weight: 600;
+      letter-spacing: .4px;
+      text-align: left;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: flex-start;
+      margin-bottom: 10px;
+    }
+    .skill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(80,100,255,0.12);
+      color: #f2f2fa;
+      padding: 10px 17px 10px 13px;
+      border-radius: 999px;
+      font-size: 1.01rem;
+      border: 1px solid #1f2633;
+      box-shadow: 0 1px 4px #23254645;
+      backdrop-filter: blur(2px);
+      transition: background 0.22s, transform .2s, color .2s;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .skill i {
+      font-size: 1.23em;
+      color: #facc15;
+      filter: drop-shadow(0 1px 2px #2226);
+      transition: color .2s;
+    }
+    .skill:hover {
+      background: #1e253b;
+      color: #ffe27b;
+      transform: scale(1.08);
+    }
+    .skill:hover i { color: #2dd4fd;}
+    /* Project Cards */
+    .projects-section {
+      max-width: 900px;
+      margin: 50px auto 0 auto;
+      text-align: center;
+    }
+    .projects-section h2 {
+      color: #2dd4fd;
+      margin-bottom: 28px;
+      font-size: 1.65rem;
+      letter-spacing: .6px;
+      font-weight: 700;
+    }
+    .project-card {
+      background: rgba(28, 30, 48, 0.94);
+      border-radius: 16px;
+      box-shadow: 0 4px 18px #0007, 0 0 0 1.5px #20213b;
+      margin: 0 auto 32px auto;
+      display: flex;
+      flex-direction: row;
+      gap: 22px;
+      align-items: flex-start;
+      padding: 22px;
+      max-width: 700px;
+      text-align: left;
+      backdrop-filter: blur(7px);
+    }
+    .project-card img {
+      width: 110px;
+      height: 110px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 12px #121f49ab;
+      margin-right: 18px;
+      border: 1.5px solid #23263c;
+      background: #23263c;
+    }
+    .project-info { flex: 1; }
+    .project-info h3 {
+      color: #7fd3fa;
+      font-size: 1.2rem;
+      margin: 0 0 6px 0;
+    }
+    .project-info p { font-size: 1.06rem; margin-bottom: 10px; color: #e5e7ef;}
+    .project-tech {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .project-tech span {
+      background: rgba(80,100,255,0.09);
+      color: #f2f2fa;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: .96rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #1f2633;
+    }
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 1100px) {
+      .main-content { flex-direction: column; align-items: stretch; gap: 0;}
+      .skills-window, .about-section { margin: 0 auto 26px auto; }
+      .skills-list { justify-content: center;}
+    }
+    @media (max-width: 900px) {
+      .project-card { flex-direction: column; align-items: center; text-align: center; }
+      .project-card img { margin: 0 0 12px 0; }
+    }
+    @media (max-width: 700px) {
+      .about-section { padding: 17px 8px 18px 8px; }
+      .skills-window { width: 98vw; min-width: unset; }
+      .container { padding: 0 4px; }
+      .about-section h1 { font-size: 1.18rem;}
+      .about-section h2 { font-size: 1.08rem;}
+      .skills-window { min-width: 180px;}
+    }
+    @media (max-width: 900px) {
+
+      .about-section {
+        order: 1;
+      }
+
+      .skills-window {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .avatar {
+        width: 170px;
+        height: 170px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .about-section {
+        margin-top: 20px;
+      }
+      .skills-window {
+        margin-top: 25px;
+      }
+      .projects-section {
+        margin-top: 40px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+
+      .top-links {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .skill {
+        font-size: 0.85rem;
+        padding: 8px 14px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .project-card img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .project-card {
+        padding: 18px;
+      }
+    }
+    
+
+    @media (max-width: 900px) {
+      body {
+        overflow-x: hidden;
+      }
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Buttons (GitHub, LinkedIn, Gmail, Download CV) -->
+    <div class="top-links">
+      <a href="https://github.com/KhaledDab" class="btn" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/khaled-dabbah-824ba3316/" class="btn" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="mailto:khaleddabbah11@gmail.com" class="btn" target="_blank">
+        <i class="fas fa-envelope"></i> Gmail
+      </a>
+      <a href="KhaledDabbah.CV7.pdf" class="btn" download>
+        <i class="fas fa-file-download"></i> Download CV
+      </a>
+    </div>
+    <div class="main-content">
+      <!-- Skills Window/Card with header dots and icons -->
+      <div class="skills-window">
+        <div class="window-header">
+          <span class="window-dot red"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+        </div>
+        <div class="skills-content">
+          <div class="skills-title">Skills</div>
+          <div class="skills-list">
+            <!-- Problem Solving & QA -->
+            <div class="skill"><i class="fas fa-lightbulb"></i> Problem Solving</div>
+            <div class="skill"><i class="fas fa-bug"></i> QA & Manual Testing</div>
+            <div class="skill"><i class="fas fa-stethoscope"></i> Debugging & Troubleshooting</div>
+            <div class="skill"><i class="fas fa-vial"></i> Test Analysis</div>
+
+            <!-- Programming & CS fundamentals -->
+            <div class="skill"><i class="fab fa-cuttlefish"></i> C</div>
+            <div class="skill"><i class="fas fa-code"></i> C++</div>
+            <div class="skill"><i class="fab fa-java"></i> Java (OOP)</div>
+            <div class="skill"><i class="fab fa-python"></i> Python</div>
+            <div class="skill"><i class="fab fa-js-square"></i> JavaScript</div>
+            <div class="skill"><i class="fas fa-database"></i> SQL</div>
+            <div class="skill">Assembly</div>
+
+            <!-- Web & Backend -->
+            <div class="skill"><i class="fab fa-node-js"></i> Node.js</div>
+            <div class="skill"><i class="fab fa-react"></i> React</div>
+            <div class="skill"><i class="fas fa-server"></i> REST APIs</div>
+            <div class="skill"><i class="fas fa-database"></i> MongoDB</div>
+
+            <!-- Tools & Platforms -->
+            <div class="skill"><i class="fab fa-github"></i> Git & GitHub</div>
+            <div class="skill"><i class="fab fa-docker"></i> Docker</div>
+            <div class="skill"><i class="fas fa-terminal"></i> Linux</div>
+            <div class="skill">Jira</div>
+          </div>
+        </div>
+      </div>
+      <!-- About Section -->
+      <div class="about-section">
+        <!-- Avatar/profile photo -->
+        <img class="avatar" src="image/profile.jpg" alt="Profile Photo">
+        <h1>Khaled Dabbah</h1>
+        <div class="subtitle">Computer Science Student</div>
+        <h2>About me</h2>
+        <div class="about">
+          Hi, I'm Khaled — a Computer Science student who enjoys building real projects, understanding how systems behave, and improving the quality of software.<br><br>
+
+          I’m especially interested in backend development, QA, system programming, and OOP design. I like digging into problems, understanding the structure behind the code, and learning from every challenge I face.<br><br>
+
+          I also tutor younger students in OOP and Java, which helped me strengthen my understanding of object-oriented design, clean coding practices, and explaining complex concepts in a simple way.<br><br>
+
+          I’m motivated, detail-oriented, and always trying to improve my skills — whether I’m writing code, testing features, or exploring new technologies.<br><br>
+
+          I’m currently looking for a <strong>QA / Software Student</strong> position where I can grow, learn from experienced engineers, and contribute to a team in a meaningful way.
+
+        </div>
+      </div>
+    </div>
+    <!-- Projects Section (add more cards as needed) -->
+    <div class="project-card">
+      <img src="https://raw.githubusercontent.com/github/explore/main/topics/nodejs/nodejs.png" alt="GoMail">
+        <div class="project-info">
+          <h3>GoMail Platform</h3>
+          <p>
+            A full-featured email platform for web and mobile, including authentication,
+            real-time messaging, labels, spam filtering, and push notifications.
+          </p>
+
+          <div class="project-tech">
+            <span><i class="fab fa-node-js"></i> Node.js</span>
+            <span><i class="fas fa-database"></i> MongoDB</span>
+            <span><i class="fab fa-react"></i> React Native</span>
+            <span>REST API</span>
+          </div>
+
+          <div class="project-links">
+            <a class="btn" target="_blank">
+              <i class="fab fa-github"></i> Private Repository
+            </a>
+          </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://raw.githubusercontent.com/github/explore/main/topics/java/java.png" alt="Arkanoid Game">
+      <div class="project-info">
+        <h3>Arkanoid Game</h3>
+        <p>
+          A full Java implementation of the classic Arkanoid game, built using
+          clean OOP principles, collision detection, and interactive paddle/ball mechanics.
+        </p>
+
+        <div class="project-tech">
+          <span><i class="fab fa-java"></i> Java</span>
+          <span>OOP</span>
+          <span>Design Patterns</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/KhaledDab/ArknoidGame" target="_blank" class="btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://raw.githubusercontent.com/github/explore/main/topics/c/c.png" alt="Phone Book Manager">
+      <div class="project-info">
+        <h3>Phone Book Manager</h3>
+        <p>
+          A C-based command-line application for managing contacts using pointers, 
+          dynamic memory, and linked lists. Supports adding, deleting, updating, 
+          and searching contacts with efficient memory handling.
+        </p>
+
+      <div class="project-tech">
+        <span>C</span>
+        <span>Linked Lists</span>
+        <span>Dynamic Memory</span>
+        <span>Pointers</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/KhaledDab/PhoneBookManager" target="_blank" class="btn">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+      <!-- Add more project-card divs here! -->
+    </div>
+  </div>
+</body>
+</html>
